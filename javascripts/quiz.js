@@ -20,9 +20,10 @@ function Robot () {
 }
 
 ////////////////////////Drones////////////////////////
+
 function Drone () {
 
-  // KillBots should start with 80 health
+  // Drones should start with 80 health
   var health = this.addHealth(30);
 
   this.laserAttack = function(opponent) {
@@ -36,11 +37,12 @@ function Drone () {
     opponent.subtractHealth(damage);
     return damage;
   };
-
 }
 
-
 Drone.prototype = new Robot();
+
+
+////////////////////////Bipeds////////////////////////
 
 function Bipedal () {
 
@@ -62,7 +64,22 @@ function Bipedal () {
 
 Bipedal.prototype = new Robot();
 
+function IG88 () {
+  this.laserRifle = function(opponent) {
+    let damage = Math.floor(Math.random() * 17 + 11);
+    opponent.subtractHealth(damage);
+    return damage;
+  };
+}
+
+IG88.prototype = new Bipedal();
+
+
+////////////////////////ATVs////////////////////////
+
 function ATV () {
+
+  //ATVs should start with 75 health
   var health = this.addHealth(25);
 
   this.runOver = function(opponent) {
