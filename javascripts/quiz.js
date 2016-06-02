@@ -65,6 +65,11 @@ function Bipedal () {
 Bipedal.prototype = new Robot();
 
 function IG88 () {
+
+  this.model = function () {
+    return "IG-88";
+  };
+
   this.laserRifle = function(opponent) {
     let damage = Math.floor(Math.random() * 17 + 11);
     opponent.subtractHealth(damage);
@@ -74,6 +79,20 @@ function IG88 () {
 
 IG88.prototype = new Bipedal();
 
+function HumanoidX () {
+
+  this.model = function () {
+    return "Humanoid-X";
+  };
+
+  this.rocketPunch = function(opponent) {
+    let damage = Math.floor(Math.random() * 16 + 12);
+    opponent.subtractHealth(damage);
+    return damage;
+  };
+}
+
+HumanoidX.prototype = new Bipedal();
 
 ////////////////////////ATVs////////////////////////
 
